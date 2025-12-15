@@ -1,0 +1,99 @@
+/* === CUSTOM STYLES & ANIMATIONS === */
+
+/* Background gradien gelap (tema deep space) */
+.bg-deep-space {
+    background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+}
+
+/* Animasi Garis Scanner (naik turun) */
+@keyframes scan-line { 
+    0% { top: 0%; opacity: 0; } 
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; } 
+}
+
+.scanner-line {
+    position: absolute; 
+    width: 100%; 
+    height: 2px;
+    background: #06b6d4;
+    box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee;
+    animation: scan-line 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    z-index: 0;
+}
+
+/* Strip PIN (pengganti titik bulat biasa) */
+.pin-strip {
+    width: 40px; 
+    height: 4px; 
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* State aktif saat angka dimasukkan */
+.pin-strip.active {
+    background: #06b6d4;
+    box-shadow: 0 0 10px #06b6d4;
+    transform: scaleX(1.1);
+}
+
+/* Tombol Keypad Modern (Glassmorphism) */
+.keypad-btn-modern {
+    width: 5rem; 
+    height: 3.5rem; 
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white; 
+    font-size: 1.5rem; 
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.keypad-btn-modern:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+.keypad-btn-modern:active {
+    transform: scale(0.95);
+    background: rgba(6, 182, 212, 0.2);
+}
+
+/* Animasi Getar jika PIN Salah */
+@keyframes shake-hard { 
+    0%, 100% { transform: translateX(0); } 
+    20% { transform: translateX(-15px); } 
+    40% { transform: translateX(15px); } 
+    60% { transform: translateX(-10px); } 
+    80% { transform: translateX(10px); } 
+}
+
+.shake-anim { 
+    animation: shake-hard 0.4s ease-in-out; 
+    border-color: #ef4444 !important; 
+}
+
+/* Transisi Overlay (Login Screen) */
+.hidden-overlay { 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease; 
+    filter: blur(20px); 
+    transform: scale(1.1); 
+}
+
+.visible-overlay { 
+    opacity: 1; 
+    pointer-events: auto; 
+    transition: opacity 0.3s ease; 
+    filter: blur(0); 
+    transform: scale(1); 
+}

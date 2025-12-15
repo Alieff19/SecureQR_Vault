@@ -1,0 +1,6 @@
+Flask==3.0.0
+pycryptodome==3.19.0
+qrcode==7.4.2
+Pillow==10.1.0
+requests==2.31.0
+werkzeug==3.0.1
